@@ -12,7 +12,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) { //MemberService클래스 입장에서 보면 외부에서 MemberRepository가 주입되는 DI라고 함
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
